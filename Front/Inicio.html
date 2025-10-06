@@ -1,64 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <title>Bootstrap Example</title>
+    <title>Lectura Viva - Inicio</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .book-card {
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        
+        .book-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        
+        .book-img {
+            height: 250px;
+            /* Altura uniforme para portadas */
+            object-fit: contain;
+            width: 100%;
+        }
+    </style>
 </head>
 
-<body>
-    <div class="container-fluid bg-dark text-white">
-        <h2>Lectura Viva</h2>
-        <ul class="nav">
-            <li class="nav-item">
-                <a class="nav-link border" href="#">inicio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link border" href="#">Catalogo</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link border" href="#">Contacto</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link border" href="#">Usuario</a>
-            </li>
-        </ul>
-        <div class="d-flex justify-content-center">
-            <div id="demo" class="carousel slide" data-bs-ride="carousel" style="width: 300px;">
+<body class="bg-dark">
 
-                <!-- Indicators/dots -->
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                    <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                </div>
-
-                <!-- The slideshow/carousel -->
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="Sherlock.webp" alt="Sherlock Holmes:Estudio en escarlata" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Harry Potter.webp" alt="Harry Potter y la piedra filosofal" class="d-block w-100">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="Romeo.png" alt="Romeo y Julieta" class="d-block w-100">
-                    </div>
-                </div>
-
-                <!-- Left and right controls/icons -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="#">Lectura Viva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
             </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Novedades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Mi Cuenta</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <button class="btn btn-outline-light me-3 d-flex align-items-center" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                        </svg>
+                        Carrito (3)
+                    </button>
+                    <a href="#" class="btn btn-primary">Iniciar Sesión</a>
+                </div>
             </div>
         </div>
+    </nav>
 
+    <div class="container text-white p-4">
+
+        <h1 class="mb-4 text-center">Explora Nuestro Catálogo</h1>
+
+        <div class="row d-flex justify-content-center align-items-center bg-secondary p-3 rounded mb-5 shadow">
+
+            <div class="dropdown me-3 mb-2 mb-md-0 col-md-auto">
+                <button type="button" class="btn btn-primary dropdown-toggle w-100" data-bs-toggle="dropdown">Género</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                    <li><a class="dropdown-item" href="#">Drama</a></li>
+                    <li><a class="dropdown-item" href="#">Ciencia Ficción</a></li>
+                    <li><a class="dropdown-item" href="#">Novela Negra</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown me-3 mb-2 mb-md-0 col-md-auto">
+                <button type="button" class="btn btn-primary dropdown-toggle w-100" data-bs-toggle="dropdown">Año</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">1980-1990</a></li>
+                    <li><a class="dropdown-item" href="#">2001-2010</a></li>
+                    <li><a class="dropdown-item" href="#">2011-2025</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center me-3 mb-2 mb-md-0 col-md-auto">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="checkNovedad" checked>
+                    <label class="form-check-label" for="checkNovedad">Novedad</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkExclusivo">
+                    <label class="form-check-label" for="checkExclusivo">Exclusivo</label>
+                </div>
+            </div>
+
+            <form class="d-flex flex-grow-1 col-12 col-md-4">
+                <input class="form-control me-2" type="text" placeholder="Buscar por título o autor">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </form>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-4">
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="URL_ESTUDIO_EN_ESCARLATA.jpg" class="card-img-top book-img p-3" alt="Estudio en Escarlata">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Estudio en Escarlata</h6>
+                        <p class="card-text small text-light">A. Conan Doyle</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-warning">$12.990</p>
+                        <a href="#" class="btn btn-success btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="URL_ROMEO_Y_JULIETA.jpg" class="card-img-top book-img p-3" alt="Romeo y Julieta">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Romeo y Julieta</h6>
+                        <p class="card-text small text-light">William Shakespeare</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-warning">$7.500</p>
+                        <a href="#" class="btn btn-success btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="URL_EL_PRINCIPITO.jpg" class="card-img-top book-img p-3" alt="El Principito">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">El Principito</h6>
+                        <p class="card-text small text-light">A. de Saint-Exupéry</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-warning">$5.990</p>
+                        <a href="#" class="btn btn-success btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm placeholder-glow">
+                    <div class="book-img p-3 bg-dark d-flex align-items-center justify-content-center">
+                        <span class="placeholder col-8 h-75"></span>
+                    </div>
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold placeholder col-8 mx-auto"></h6>
+                        <p class="card-text small text-muted placeholder col-5 mx-auto"></p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold placeholder col-4 mx-auto"></p>
+                        <a href="#" class="btn btn-success btn-sm mt-2 disabled placeholder col-7 mx-auto"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="URL_OTRO_LIBRO.jpg" class="card-img-top book-img p-3" alt="Otro Libro">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Título del Libro</h6>
+                        <p class="card-text small text-light">Autor Famoso</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-warning">$8.250</p>
+                        <a href="#" class="btn btn-success btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 </body>
 
