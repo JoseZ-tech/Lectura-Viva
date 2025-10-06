@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Lectura Viva - Realizar Pedido</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .full-height {
+            min-height: 100vh;
+        }
+        /* Estilo para artículos en la lista */
+        
+        .order-item-img {
+            width: 60px;
+            height: 90px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="index.html">Lectura Viva</a>
+            <span class="navbar-text text-light">
+                Finalizar Compra
+            </span>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-5 text-center">Finalizar Pedido</h1>
+
+        <div class="row g-4">
+
+            <div class="col-lg-7">
+
+                <div class="card bg-secondary text-white p-4 shadow-sm mb-4">
+                    <h4 class="card-title mb-4">1. Datos de Envío</h4>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="inputName" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="inputName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Para confirmación de pedido" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="inputAddress" class="form-label">Dirección</label>
+                                <input type="text" class="form-control" id="inputAddress" placeholder="Calle, número, depto." required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputCity" class="form-label">Ciudad</label>
+                                <input type="text" class="form-control" id="inputCity" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="inputRegion" class="form-label">Región/Estado</label>
+                                <select id="inputRegion" class="form-select" required>
+                                    <option selected>Seleccione...</option>
+                                    <option>Metropolitana</option>
+                                    <option>Valparaíso</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card bg-secondary text-white p-4 shadow-sm">
+                    <h4 class="card-title mb-4">2. Método de Pago</h4>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
+                        <label class="form-check-label" for="creditCard">
+                            Tarjeta de Crédito / Débito
+                        </label>
+                    </div>
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="radio" name="paymentMethod" id="transfer">
+                        <label class="form-check-label" for="transfer">
+                            Transferencia Bancaria
+                        </label>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-12">
+                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                            <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
+                            <input type="text" class="form-control" id="cardName">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cardExpiry" class="form-label">Vencimiento</label>
+                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cardCvv" class="form-label">CVV</label>
+                            <input type="text" class="form-control" id="cardCvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card bg-secondary text-white p-4 shadow-lg sticky-top" style="top: 20px;">
+                    <h4 class="card-title mb-4 border-bottom pb-2">Resumen de Compra</h4>
+
+                    <ul class="list-group list-group-flush mb-4">
+
+                        <li class="list-group-item bg-secondary d-flex justify-content-between align-items-center text-white p-2">
+                            <img src="URL_ESTUDIO_EN_ESCARLATA.jpg" alt="Portada" class="rounded me-3 order-item-img">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">Estudio en Escarlata</h6>
+                                <small class="text-muted">Cantidad: 1</small>
+                            </div>
+                            <span class="fw-bold">$12.990</span>
+                        </li>
+
+                        <li class="list-group-item bg-secondary d-flex justify-content-between align-items-center text-white p-2">
+                            <img src="URL_EL_PRINCIPITO.jpg" alt="Portada" class="rounded me-3 order-item-img">
+                            <div class="flex-grow-1">
+                                <h6 class="mb-0">El Principito</h6>
+                                <small class="text-muted">Cantidad: 2</small>
+                            </div>
+                            <span class="fw-bold">$11.980</span> </li>
+
+                    </ul>
+
+                    <ul class="list-group list-group-flush mb-4 small">
+                        <li class="list-group-item bg-secondary d-flex justify-content-between text-white border-top">
+                            <span>Subtotal:</span>
+                            <span>$24.970</span>
+                        </li>
+                        <li class="list-group-item bg-secondary d-flex justify-content-between text-white">
+                            <span>Costo de Envío:</span>
+                            <span>$3.500</span>
+                        </li>
+                        <li class="list-group-item bg-secondary d-flex justify-content-between text-white fw-bold fs-5">
+                            <span>TOTAL:</span>
+                            <span class="text-warning">$28.470</span>
+                        </li>
+                    </ul>
+
+                    <button type="button" class="btn btn-warning btn-lg w-100">Confirmar y Pagar $28.470</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
