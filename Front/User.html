@@ -17,12 +17,33 @@
 
 <body class="bg-dark text-white">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary shadow-sm">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary sticky-top">
         <div class="container-fluid">
-            <a class="navbar-brand fw-bold fs-4" href="index.html">Lectura Viva</a>
-            <span class="navbar-text text-warning">
-                ¡Bienvenido, [Nombre de Usuario]!
-            </span>
+            <a class="navbar-brand fw-bold" href="#">Lectura Viva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Catalogo.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="User.html">Usuario</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                    </svg> Carrito
+                </a>
+            </div>
         </div>
     </nav>
 
