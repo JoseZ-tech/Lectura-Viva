@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException, status
 from motor.motor_asyncio import AsyncIOMotorClient
 from typing import List
 from bson import ObjectId
-from Database import Usuario, UsuarioCreate, Producto, ProductoCreate 
+from Databese import Usuario, UsuarioCreate, Producto, ProductoCreate 
 
 
 MONGO_URI = "mongodb://localhost:27017" 
