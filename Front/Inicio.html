@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Lectura Viva - Inicio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .book-card {
+            height: 100%;
+            transition: transform 0.2s;
+        }
+        
+        .book-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+        
+        .book-img {
+            height: 250px;
+            object-fit: contain;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary sticky-top shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold fs-4" href="#">Lectura Viva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Catalogo.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="User.html">Usuario</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                    </svg> Carrito
+                </a>
+            </div>
+        </div>
+        </div>
+    </nav>
+
+    <div class="container text-white p-4">
+
+        <h1 class="mb-4 text-center">Explora Nuestro Catálogo</h1>
+
+        <div class="row d-flex justify-content-center align-items-center bg-secondary p-3 rounded mb-5 shadow">
+
+            <div class="dropdown me-3 mb-2 mb-md-0 col-md-auto">
+                <button type="button" class="btn btn-primary dropdown-toggle w-100" data-bs-toggle="dropdown">Género</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                    <li><a class="dropdown-item" href="#">Drama</a></li>
+                    <li><a class="dropdown-item" href="#">Ciencia Ficción</a></li>
+                    <li><a class="dropdown-item" href="#">Novela Negra</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown me-3 mb-2 mb-md-0 col-md-auto">
+                <button type="button" class="btn btn-primary dropdown-toggle w-100" data-bs-toggle="dropdown">Año</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">1980-1990</a></li>
+                    <li><a class="dropdown-item" href="#">2001-2010</a></li>
+                    <li><a class="dropdown-item" href="#">2011-2025</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center me-3 mb-2 mb-md-0 col-md-auto">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="checkNovedad" checked>
+                    <label class="form-check-label" for="checkNovedad">Novedad</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkExclusivo">
+                    <label class="form-check-label" for="checkExclusivo">Exclusivo</label>
+                </div>
+            </div>
+
+            <form class="d-flex flex-grow-1 col-12 col-md-4">
+                <input class="form-control me-2" type="text" placeholder="Buscar por título o autor">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </form>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-5 g-4">
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="Sherlock.webp" class="card-img-top book-img p-3" alt=" Sherlock Holmes:Estudio en Escarlata">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Sherlock Holmes:Estudio en Escarlata</h6>
+                        <p class="card-text small text-light">A. Conan Doyle</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-white">$10.990</p>
+                        <a href="#" class="fw-bold btn btn-primary btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="Romeo.png" class="card-img-top book-img p-3" alt="Romeo y Julieta">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Romeo y Julieta</h6>
+                        <p class="card-text small text-light">William Shakespeare</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-white">$5.200</p>
+                        <a href="#" class="fw-bold btn btn-primary btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary border-0 book-card text-white shadow-sm">
+                    <img src="principito.webp" class="card-img-top book-img p-3" alt="El Principito">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">El Principito</h6>
+                        <p class="card-text small text-light">A. de Saint-Exupéry</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-white">$7.990</p>
+                        <a href="#" class="fw-bold btn btn-primary btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Alicia.webp" class="card-img-top book-img p-2" alt="Alicia en el pais de las marallivas">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Alicia en el pais de las maravillas</h6>
+                        <p class="card-text small text-light">Lewis Carroll</p>
+                        <p class="mt-auto mb-1 fs-5 fw-bold text-white">$9.990</p>
+                        <a href="#" class="fw-bold btn btn-primary btn-sm mt-2">Agregar al Carrito</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    </div>
+
+</body>
+
+</html>

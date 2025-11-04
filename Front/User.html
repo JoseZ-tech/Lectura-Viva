@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Lectura Viva - Mi Cuenta</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .full-height {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-white">
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Lectura Viva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Catalogo.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="User.html">Usuario</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                    </svg> Carrito
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-4 text-center">Usuario</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+
+                <ul class="nav nav-tabs nav-justified mb-4" id="userTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active bg-primary text-white" id="datos-tab" data-bs-toggle="tab" data-bs-target="#datos" type="button" role="tab" aria-controls="datos" aria-selected="true">
+                            Datos Personales
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link bg-secondary text-white" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="false">
+                            Mis Pedidos
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link bg-secondary text-white" id="config-tab" data-bs-toggle="tab" data-bs-target="#config" type="button" role="tab" aria-controls="config" aria-selected="false">
+                            Configuración
+                        </button>
+                    </li>
+                </ul>
+
+                <div class="tab-content" id="userTabsContent">
+
+                    <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="datos-tab">
+                        <div class="card bg-secondary p-4 shadow-lg">
+                            <h4 class="mb-4">Información de la Cuenta</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="profileName" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="profileName" value="Juan Pérez" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profileEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="profileEmail" value="juan.perez@correo.cl" disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="profileAddress" class="form-label">Dirección de Envío Principal</label>
+                                    <input type="text" class="form-control" id="profileAddress" value="Av. Siempre Viva 742, Santiago">
+                                </div>
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button type="button" class="btn btn-warning">Guardar Cambios</button>
+                                    <button type="button" class="btn btn-outline-danger">Cambiar Contraseña</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab">
+                        <div class="card bg-secondary p-4 shadow-lg">
+                            <h4 class="mb-4">Historial de Pedidos</h4>
+
+                            <div class="list-group">
+                                <div class="list-group-item bg-dark text-white mb-3 rounded shadow-sm">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1 text-warning">Pedido #LV-2024002</h5>
+                                        <small>Estado: <span class="badge bg-primary">Entregado</span></small>
+                                    </div>
+                                    <p class="mb-1">Fecha: 25/09/2025 | Total: $20.980</p>
+                                    <small class="text-muted">Incluye 1 artículo.</small>
+                                    <div class="mt-2 text-end">
+                                        <button class="btn btn-sm btn-info me-2">Ver Detalle</button>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="alert alert-info mt-3" role="alert">
+                                Para cualquier modificación de un pedido entregado, contacta a soporte.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="config" role="tabpanel" aria-labelledby="config-tab">
+                        <div class="card bg-secondary p-4 shadow-lg">
+                            <h4 class="mb-4">Opciones de la Cuenta</h4>
+
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                <label class="form-check-label" for="flexSwitchCheckChecked">Recibir notificaciones por correo electrónico</label>
+                            </div>
+                            <div class="form-check form-switch mb-5">
+                                <input class="form-check-input" type="checkbox" id="flexSwitchSMS">
+                                <label class="form-check-label" for="flexSwitchSMS">Recibir ofertas por SMS</label>
+                            </div>
+
+                            <h5 class="text-danger mb-3">Zona de Riesgo</h5>
+                            <button type="button" class="btn btn-danger w-50">Eliminar Mi Cuenta (Irreversible)</button>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

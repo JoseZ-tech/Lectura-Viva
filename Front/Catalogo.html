@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Lectura Viva - Catálogo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .book-card {
+            height: 100%;
+        }
+        
+        .book-img {
+            height: 200px;
+            object-fit: contain;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-dark">
+
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Lectura Viva</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mynavbar">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Inicio.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Catalogo.html">Catálogo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Contacto.html">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="User.html">Usuario</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-primary d-flex align-items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                    </svg> Carrito
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid text-white p-4">
+
+        <h3 class="mb-4">Catálogo de Libros</h3>
+
+        <div class="row d-flex justify-content-start align-items-center bg-dark p-3 rounded mb-4 border border-secondary">
+
+            <div class="dropdown me-3 mb-2 mb-md-0">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Género</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Fantasía</a></li>
+                    <li><a class="dropdown-item" href="#">Drama</a></li>
+                    <li><a class="dropdown-item" href="#">Ciencia Ficción</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown me-3 mb-2 mb-md-0">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Año</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">1980-1990</a></li>
+                    <li><a class="dropdown-item" href="#">2001-2010</a></li>
+                    <li><a class="dropdown-item" href="#">2011-2025</a></li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center me-3 mb-2 mb-md-0">
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="checkbox" id="checkNovedad" checked>
+                    <label class="form-check-label" for="checkNovedad">Novedad</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkExclusivo" checked>
+                    <label class="form-check-label" for="checkExclusivo">Exclusivo</label>
+                </div>
+            </div>
+
+            <form class="d-flex flex-grow-1">
+                <input class="form-control me-2" type="text" placeholder="Buscar por título o autor">
+                <button class="btn btn-primary" type="button">Buscar</button>
+            </form>
+        </div>
+
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Sherlock.webp" class="card-img-top book-img p-2" alt="Estudio en Escarlata">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Estudio en Escarlata</h6>
+                        <p class="card-text small text-muted">A. Conan Doyle</p>
+                        <p class="mt-auto mb-1 fw-bold">$10.990</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Romeo.png" class="card-img-top book-img p-2" alt="Romeo y Julieta">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Romeo y Julieta</h6>
+                        <p class="card-text small text-muted">William Shakespeare</p>
+                        <p class="mt-auto mb-1 fw-bold">$5.200</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="principito.webp" class="card-img-top book-img p-2" alt="El Principito">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">El Principito</h6>
+                        <p class="card-text small text-muted">A. de Saint-Exupéry</p>
+                        <p class="mt-auto mb-1 fw-bold">$7.990</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Alicia.webp" class="card-img-top book-img p-2" alt="Alicia en el pais de las marallivas">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Alicia en el pais de las maravillas</h6>
+                        <p class="card-text small text-muted">Lewis Carroll</p>
+                        <p class="mt-auto mb-1 fw-bold">$9.990</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Donde.webp" class="card-img-top book-img p-2" alt="Donde surgen las sombras">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Donde surgen las sombras</h6>
+                        <p class="card-text small text-muted">D.Lozano Garbala</p>
+                        <p class="mt-auto mb-1 fw-bold">$6.500</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="La divina.webp" class="card-img-top book-img p-2" alt="La divina comedia">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">La divina comedia</h6>
+                        <p class="card-text small text-muted">Dante Alighieri</p>
+                        <p class="mt-auto mb-1 fw-bold">$15.000</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Viaje.webp" class="card-img-top book-img p-2" alt="Viaje al centro de la tierra">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Viaje al centro de la tierra</h6>
+                        <p class="card-text small text-muted">Julio Verne</p>
+                        <p class="mt-auto mb-1 fw-bold">$6.990</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card bg-secondary book-card text-white">
+                    <img src="Harry Potter.webp" class="card-img-top book-img p-2" alt="Harry Potter y la piedra filosofal">
+                    <div class="card-body d-flex flex-column text-center">
+                        <h6 class="card-title fw-bold">Harry Potter y la piedra filosofal</h6>
+                        <p class="card-text small text-muted">J.K Rowling</p>
+                        <p class="mt-auto mb-1 fw-bold">$11.990</p>
+                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <nav aria-label="Navegación de Páginas">
+                <ul class="pagination pagination-lg">
+                    <li class="page-item disabled">
+                        <a class="page-link bg-secondary border-secondary text-white" href="#" aria-label="Anterior">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link bg-primary border-primary text-white" href="#">1</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link bg-secondary border-secondary text-white" href="#">2</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link bg-secondary border-secondary text-white" href="#">3</a>
+                    </li>
+
+                    <li class="page-item disabled">
+                        <span class="page-link bg-dark border-dark text-white">...</span>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link bg-secondary border-secondary text-white" href="#">5</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link bg-secondary border-secondary text-white" href="#" aria-label="Siguiente">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+</body>
+
+</html>
