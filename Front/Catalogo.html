@@ -94,102 +94,12 @@
             </form>
         </div>
 
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
-
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Sherlock.webp" class="card-img-top book-img p-2" alt="Estudio en Escarlata">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Estudio en Escarlata</h6>
-                        <p class="card-text small text-muted">A. Conan Doyle</p>
-                        <p class="mt-auto mb-1 fw-bold">$10.990</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Romeo.png" class="card-img-top book-img p-2" alt="Romeo y Julieta">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Romeo y Julieta</h6>
-                        <p class="card-text small text-muted">William Shakespeare</p>
-                        <p class="mt-auto mb-1 fw-bold">$5.200</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="principito.webp" class="card-img-top book-img p-2" alt="El Principito">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">El Principito</h6>
-                        <p class="card-text small text-muted">A. de Saint-Exupéry</p>
-                        <p class="mt-auto mb-1 fw-bold">$7.990</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Alicia.webp" class="card-img-top book-img p-2" alt="Alicia en el pais de las marallivas">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Alicia en el pais de las maravillas</h6>
-                        <p class="card-text small text-muted">Lewis Carroll</p>
-                        <p class="mt-auto mb-1 fw-bold">$9.990</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Donde.webp" class="card-img-top book-img p-2" alt="Donde surgen las sombras">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Donde surgen las sombras</h6>
-                        <p class="card-text small text-muted">D.Lozano Garbala</p>
-                        <p class="mt-auto mb-1 fw-bold">$6.500</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
+        <div id="booksContainer" class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
+            <p class="text-center text-light">Cargando libros...</p>
         </div>
-        <div class="row row-cols-2 row-cols-md-4 row-cols-lg-6 g-4">
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="La divina.webp" class="card-img-top book-img p-2" alt="La divina comedia">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">La divina comedia</h6>
-                        <p class="card-text small text-muted">Dante Alighieri</p>
-                        <p class="mt-auto mb-1 fw-bold">$15.000</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Viaje.webp" class="card-img-top book-img p-2" alt="Viaje al centro de la tierra">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Viaje al centro de la tierra</h6>
-                        <p class="card-text small text-muted">Julio Verne</p>
-                        <p class="mt-auto mb-1 fw-bold">$6.990</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card bg-secondary book-card text-white">
-                    <img src="Harry Potter.webp" class="card-img-top book-img p-2" alt="Harry Potter y la piedra filosofal">
-                    <div class="card-body d-flex flex-column text-center">
-                        <h6 class="card-title fw-bold">Harry Potter y la piedra filosofal</h6>
-                        <p class="card-text small text-muted">J.K Rowling</p>
-                        <p class="mt-auto mb-1 fw-bold">$11.990</p>
-                        <a href="#" class="btn btn-primary btn-sm mt-1">Ver Detalle</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex justify-content-center">
+
+
+        <div class="d-flex justify-content-center mt-5">
             <nav aria-label="Navegación de Páginas">
                 <ul class="pagination pagination-lg">
                     <li class="page-item disabled">
@@ -228,6 +138,88 @@
         </div>
     </div>
 
+    <script>
+        // *** IMPORTANTE: Confirma que esta URL es la correcta para tu servidor GraphQL ***
+        const API_URL = 'http://localhost:4000/';
+
+        // Consulta GraphQL para obtener el catálogo de libros
+        // Asume que tu esquema tiene una query llamada 'books'
+        const GET_BOOKS_QUERY = `
+            query GetBooks {
+                books {
+                    id
+                    title
+                    author
+                    price
+                    imageURL // Debe ser un campo accesible por el frontend
+                }
+            }
+        `;
+
+        // Función para crear el código HTML de una tarjeta de libro
+        function createBookCard(book) {
+            // Utilizamos toLocaleString para formatear el precio (asumo peso chileno 'es-CL' como ejemplo)
+            const formattedPrice = book.price ? book.price.toLocaleString('es-CL') : 'N/A';
+            const imageUrl = book.imageURL || 'placeholder.webp'; // Usa un placeholder si no hay imagen
+
+            return `
+                <div class="col">
+                    <div class="card bg-secondary book-card text-white">
+                        <img src="${imageUrl}" class="card-img-top book-img p-2" alt="${book.title}">
+                        <div class="card-body d-flex flex-column text-center">
+                            <h6 class="card-title fw-bold">${book.title}</h6>
+                            <p class="card-text small text-muted">${book.author}</p>
+                            <p class="mt-auto mb-1 fw-bold">$${formattedPrice}</p>
+                            <a href="#" class="btn btn-primary btn-sm mt-1" data-book-id="${book.id}">Ver Detalle</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Función principal para cargar los libros del backend
+        async function fetchBooks() {
+            const container = document.getElementById('booksContainer');
+            container.innerHTML = '<p class="text-center text-light">Cargando libros...</p>'; // Mostrar estado de carga
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        query: GET_BOOKS_QUERY,
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.errors) {
+                    // Manejo de errores de GraphQL (ej: error de sintaxis en el query)
+                    container.innerHTML = `<p class="text-danger text-center">Error al cargar el catálogo: ${result.errors[0].message}</p>`;
+                    return;
+                }
+
+                const books = result.data.books || [];
+
+                if (books.length === 0) {
+                    container.innerHTML = '<p class="text-center text-light">No hay libros disponibles en el catálogo en este momento.</p>';
+                } else {
+                    // Mapea el array de libros a un string de HTML y lo inyecta
+                    let htmlContent = books.map(createBookCard).join('');
+                    container.innerHTML = htmlContent;
+                }
+
+            } catch (error) {
+                console.error("Error de conexión:", error);
+                container.innerHTML = '<p class="text-danger text-center">Error de red: No se pudo conectar con el servidor GraphQL. Asegúrate de que el backend esté ejecutándose en ' + API_URL + '</p>';
+            }
+        }
+
+        // Inicia la carga de libros cuando la página se ha cargado completamente
+        window.onload = fetchBooks;
+    </script>
 </body>
 
 </html>

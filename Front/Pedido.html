@@ -19,6 +19,11 @@
             height: 90px;
             object-fit: cover;
         }
+        
+        .sticky-top {
+            /* Asegura que el resumen se mantenga visible */
+            top: 20px;
+        }
     </style>
 </head>
 
@@ -39,10 +44,11 @@
         <div class="row g-4">
 
             <div class="col-lg-7">
+                <form id="checkoutForm" onsubmit="handlePlaceOrder(event)">
 
-                <div class="card bg-secondary text-white p-4 shadow-sm mb-4">
-                    <h4 class="card-title mb-4">1. Datos de Envío</h4>
-                    <form>
+                    <div class="card bg-secondary text-white p-4 shadow-sm mb-4">
+                        <h4 class="card-title mb-4">1. Datos de Envío</h4>
+
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label for="inputName" class="form-label">Nombre Completo</label>
@@ -63,98 +69,311 @@
                             <div class="col-md-6">
                                 <label for="inputRegion" class="form-label">Región/Estado</label>
                                 <select id="inputRegion" class="form-select" required>
-                                    <option selected>Seleccione...</option>
-                                    <option>Metropolitana</option>
-                                    <option>Valparaíso</option>
-                                    </select>
+                                    <option selected value="">Seleccione...</option>
+                                    <option value="Metropolitana">Metropolitana</option>
+                                    <option value="Valparaíso">Valparaíso</option>
+                                </select>
                             </div>
                         </div>
-                    </form>
-                </div>
 
-                <div class="card bg-secondary text-white p-4 shadow-sm">
-                    <h4 class="card-title mb-4">2. Método de Pago</h4>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" checked>
-                        <label class="form-check-label" for="creditCard">
-                            Tarjeta de Crédito / Débito
-                        </label>
-                    </div>
-                    <div class="form-check mb-4">
-                        <input class="form-check-input" type="radio" name="paymentMethod" id="transfer">
-                        <label class="form-check-label" for="transfer">
-                            Transferencia Bancaria
-                        </label>
                     </div>
 
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label for="cardNumber" class="form-label">Número de Tarjeta</label>
-                            <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                    <div class="card bg-secondary text-white p-4 shadow-sm">
+                        <h4 class="card-title mb-4">2. Método de Pago</h4>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="creditCard" value="Tarjeta" checked>
+                            <label class="form-check-label" for="creditCard">
+                                Tarjeta de Crédito / Débito
+                            </label>
                         </div>
-                        <div class="col-md-6">
-                            <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
-                            <input type="text" class="form-control" id="cardName">
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="radio" name="paymentMethod" id="transfer" value="Transferencia">
+                            <label class="form-check-label" for="transfer">
+                                Transferencia Bancaria
+                            </label>
                         </div>
-                        <div class="col-md-3">
-                            <label for="cardExpiry" class="form-label">Vencimiento</label>
-                            <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
-                        </div>
-                        <div class="col-md-3">
-                            <label for="cardCvv" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="cardCvv" placeholder="123">
+
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="cardNumber" class="form-label">Número de Tarjeta</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cardName" class="form-label">Nombre en la Tarjeta</label>
+                                <input type="text" class="form-control" id="cardName">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cardExpiry" class="form-label">Vencimiento</label>
+                                <input type="text" class="form-control" id="cardExpiry" placeholder="MM/AA">
+                            </div>
+                            <div class="col-md-3">
+                                <label for="cardCvv" class="form-label">CVV</label>
+                                <input type="text" class="form-control" id="cardCvv" placeholder="123">
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                </form>
             </div>
 
+
             <div class="col-lg-5">
-                <div class="card bg-secondary text-white p-4 shadow-lg sticky-top" style="top: 20px;">
+                <div class="card bg-secondary text-white p-4 shadow-lg sticky-top">
                     <h4 class="card-title mb-4 border-bottom pb-2">Resumen de Compra</h4>
 
-                    <ul class="list-group list-group-flush mb-4">
-
-                        <li class="list-group-item bg-secondary d-flex justify-content-between align-items-center text-white p-2">
-                            <img src="Sherlock.webp" alt="Portada" class="rounded me-3 order-item-img">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-0">Estudio en Escarlata</h6>
-                                <small class="text-muted">Cantidad: 1</small>
-                            </div>
-                            <span class="fw-bold">$10.990</span>
-                        </li>
-
-                        <li class="list-group-item bg-secondary d-flex justify-content-between align-items-center text-white p-2">
-                            <img src="principito.webp" alt="Portada" class="rounded me-3 order-item-img">
-                            <div class="flex-grow-1">
-                                <h6 class="mb-0">El Principito</h6>
-                                <small class="text-muted">Cantidad: 1</small>
-                            </div>
-                            <span class="fw-bold">$7.990</span> </li>
-
+                    <ul class="list-group list-group-flush mb-4" id="cartItemsList">
+                        <li class="list-group-item bg-secondary text-white p-2">Cargando artículos...</li>
                     </ul>
 
                     <ul class="list-group list-group-flush mb-4 small">
                         <li class="list-group-item bg-secondary d-flex justify-content-between text-white border-top">
                             <span>Subtotal:</span>
-                            <span>$18.980</span>
+                            <span id="subtotalSpan">...</span>
                         </li>
                         <li class="list-group-item bg-secondary d-flex justify-content-between text-white">
                             <span>Costo de Envío:</span>
-                            <span>$2.000</span>
+                            <span id="shippingSpan">...</span>
                         </li>
                         <li class="list-group-item bg-secondary d-flex justify-content-between text-white fw-bold fs-5">
                             <span>TOTAL:</span>
-                            <span class="text-warning">$20.980</span>
+                            <span class="text-warning" id="totalSpan">...</span>
                         </li>
                     </ul>
 
-                    <button type="button" class="btn btn-warning btn-lg w-100">Confirmar y Pagar $20.980</button>
+                    <button type="submit" form="checkoutForm" class="btn btn-warning btn-lg w-100" id="payButton">
+                        Confirmar y Pagar
+                    </button>
+                    <p id="totalFinalText" class="text-center mt-2 small"></p>
                 </div>
             </div>
 
         </div>
     </div>
+
+    <script>
+        // *** IMPORTANTE: Confirma que esta URL es la correcta para tu servidor GraphQL ***
+        const API_URL = 'http://localhost:4000/';
+        let currentTotal = 0; // Variable global para almacenar el total a pagar
+
+        // --------------------------------------------------------------------------------
+        // 1. Verificación de Autenticación y Carga Inicial de Datos (Perfil y Carrito)
+        // --------------------------------------------------------------------------------
+
+        window.onload = function() {
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                alert("Necesitas iniciar sesión para realizar un pedido.");
+                window.location.href = "Sesion.html";
+                return;
+            }
+
+            fetchCheckoutData(token);
+        };
+
+        const GET_CHECKOUT_DATA_QUERY = `
+            query GetCheckoutData {
+                me { 
+                    name 
+                    email
+                    address { 
+                        street
+                        city
+                        postalCode
+                        region 
+                    }
+                }
+                myCart {
+                    subtotal
+                    shippingCost
+                    total
+                    items {
+                        book {
+                            title
+                            imageURL
+                        }
+                        quantity
+                        price // Precio unitario en el carrito
+                    }
+                }
+            }
+        `;
+
+        async function fetchCheckoutData(token) {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        query: GET_CHECKOUT_DATA_QUERY
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.errors) {
+                    console.error("Error GraphQL:", result.errors);
+                    alert("Error al cargar datos del checkout. Por favor, revisa tu sesión.");
+                    return;
+                }
+
+                const userData = result.data.me;
+                const cartData = result.data.myCart;
+
+                if (!userData || !cartData || cartData.items.length === 0) {
+                    alert("Error: No se pudo obtener el perfil o el carrito está vacío.");
+                    window.location.href = "Catalogo.html"; // Redirige al catálogo si no hay carrito
+                    return;
+                }
+
+                // 1. Pre-llenar el formulario de envío
+                preFillShippingForm(userData);
+
+                // 2. Renderizar el resumen del carrito
+                renderCartSummary(cartData);
+
+            } catch (error) {
+                console.error("Error de conexión:", error);
+                alert("Error de red: No se pudo conectar con el servidor.");
+            }
+        }
+
+        function preFillShippingForm(user) {
+            document.getElementById('inputName').value = user.name || '';
+            document.getElementById('inputEmail').value = user.email || '';
+
+            if (user.address) {
+                document.getElementById('inputAddress').value = user.address.street || '';
+                document.getElementById('inputCity').value = user.address.city || '';
+                // Pre-selecciona la región si está disponible (asumiendo que los valores son correctos)
+                const regionSelect = document.getElementById('inputRegion');
+                if (user.address.region) {
+                    regionSelect.value = user.address.region;
+                }
+            }
+        }
+
+        function renderCartSummary(cart) {
+            currentTotal = cart.total;
+            const itemsList = document.getElementById('cartItemsList');
+            const subtotalSpan = document.getElementById('subtotalSpan');
+            const shippingSpan = document.getElementById('shippingSpan');
+            const totalSpan = document.getElementById('totalSpan');
+            const payButton = document.getElementById('payButton');
+            const totalFinalText = document.getElementById('totalFinalText');
+
+            if (cart.items.length === 0) {
+                itemsList.innerHTML = '<li class="list-group-item bg-secondary text-white p-2">El carrito está vacío.</li>';
+                payButton.disabled = true;
+                return;
+            }
+
+            // Genera el HTML de los artículos
+            itemsList.innerHTML = cart.items.map(item => {
+                const itemPrice = item.price * item.quantity;
+                return `
+                    <li class="list-group-item bg-secondary d-flex justify-content-between align-items-center text-white p-2">
+                        <img src="${item.book.imageURL || 'placeholder.webp'}" alt="Portada" class="rounded me-3 order-item-img">
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0">${item.book.title}</h6>
+                            <small class="text-muted">Cantidad: ${item.quantity} x $${item.price.toLocaleString('es-CL')}</small>
+                        </div>
+                        <span class="fw-bold">$${itemPrice.toLocaleString('es-CL')}</span>
+                    </li>
+                `;
+            }).join('');
+
+            // Actualiza los totales
+            subtotalSpan.textContent = `$${cart.subtotal.toLocaleString('es-CL')}`;
+            shippingSpan.textContent = `$${cart.shippingCost.toLocaleString('es-CL')}`;
+            totalSpan.textContent = `$${cart.total.toLocaleString('es-CL')}`;
+            payButton.textContent = `Confirmar y Pagar $${cart.total.toLocaleString('es-CL')}`;
+            totalFinalText.textContent = `*Incluye IVA y costo de envío.`;
+        }
+
+        // --------------------------------------------------------------------------------
+        // 2. Manejo de Envío del Pedido
+        // --------------------------------------------------------------------------------
+
+        const PLACE_ORDER_MUTATION = `
+            mutation PlaceOrder($shippingData: ShippingInput!, $paymentMethod: String!) {
+                placeOrder(shippingData: $shippingData, paymentMethod: $paymentMethod) {
+                    id
+                    total
+                    status
+                }
+            }
+        `;
+
+        async function handlePlaceOrder(event) {
+            event.preventDefault();
+            const token = localStorage.getItem('authToken');
+            const payButton = document.getElementById('payButton');
+
+            if (!token) {
+                alert("Sesión no válida.");
+                window.location.href = "Sesion.html";
+                return;
+            }
+
+            // Recolección de Datos del Formulario
+            const shippingData = {
+                name: document.getElementById('inputName').value,
+                email: document.getElementById('inputEmail').value,
+                address: document.getElementById('inputAddress').value,
+                city: document.getElementById('inputCity').value,
+                region: document.getElementById('inputRegion').value,
+            };
+
+            // Recolección del Método de Pago (simulado, se asume que solo enviamos el tipo)
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+
+            // Deshabilita el botón mientras se procesa
+            payButton.disabled = true;
+            payButton.textContent = "Procesando...";
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        query: PLACE_ORDER_MUTATION,
+                        variables: {
+                            shippingData: shippingData,
+                            paymentMethod: paymentMethod
+                        }
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.errors) {
+                    console.error("Error GraphQL:", result.errors);
+                    alert("Error al procesar el pedido: " + result.errors[0].message);
+                } else if (result.data && result.data.placeOrder) {
+                    const orderId = result.data.placeOrder.id;
+                    alert(`¡Pedido realizado con éxito! Su número de pedido es ${orderId.slice(-6)}.`);
+                    // Redirige a la página de usuario o a una confirmación
+                    window.location.href = "User.html#orders";
+                } else {
+                    alert("Error desconocido al finalizar el pedido.");
+                }
+
+            } catch (error) {
+                console.error("Error de conexión:", error);
+                alert("Error de red: No se pudo conectar con el servidor.");
+            } finally {
+                // Habilita el botón de nuevo si no hubo redirección
+                payButton.disabled = false;
+                payButton.textContent = `Confirmar y Pagar $${currentTotal.toLocaleString('es-CL')}`;
+            }
+        }
+    </script>
 </body>
 
 </html>

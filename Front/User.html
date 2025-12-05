@@ -12,6 +12,12 @@
         .full-height {
             min-height: 100vh;
         }
+        
+        .order-item-img {
+            width: 50px;
+            height: 75px;
+            object-fit: cover;
+        }
     </style>
 </head>
 
@@ -38,85 +44,64 @@
                         <a class="nav-link active" href="User.html">Usuario</a>
                     </li>
                 </ul>
-                <a href="#" class="btn btn-primary d-flex align-items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
-                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5M6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
-                    </svg> Carrito
-                </a>
+                <div class="d-flex">
+                    <button class="btn btn-outline-danger me-2" onclick="logout()">Cerrar Sesión</button>
+                    <a href="#" class="btn btn-primary d-flex align-items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart me-2" viewBox="0 0 16 16">
+                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L4.215 8.2A1.5 1.5 0 0 0 5.69 9.5H12.5a.5.5 0 0 1 0 1H5.69a2.5 2.5 0 0 1-2.29-1.558L1.71 4H.5a.5.5 0 0 1-.5-.5m6.25 14a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m7-3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"/>
+                        </svg> Carrito
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <div class="container py-5">
-        <h1 class="mb-4 text-center">Usuario</h1>
+        <h1 class="mb-4">Mi Cuenta</h1>
 
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
+        <div class="row">
+            <div class="col-md-3 mb-4">
+                <div class="list-group list-group-flush" id="myTab" role="tablist">
+                    <a class="list-group-item list-group-item-action active bg-secondary text-white border-bottom border-dark" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="true">Mi Perfil</a>
+                    <a class="list-group-item list-group-item-action bg-secondary text-white border-bottom border-dark" id="orders-tab" data-bs-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Mis Pedidos</a>
+                    <a class="list-group-item list-group-item-action bg-secondary text-white border-bottom border-dark" id="config-tab" data-bs-toggle="tab" href="#config" role="tab" aria-controls="config" aria-selected="false">Configuración</a>
+                </div>
+            </div>
 
-                <ul class="nav nav-tabs nav-justified mb-4" id="userTabs" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active bg-primary text-white" id="datos-tab" data-bs-toggle="tab" data-bs-target="#datos" type="button" role="tab" aria-controls="datos" aria-selected="true">
-                            Datos Personales
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link bg-secondary text-white" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidos" type="button" role="tab" aria-controls="pedidos" aria-selected="false">
-                            Mis Pedidos
-                        </button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link bg-secondary text-white" id="config-tab" data-bs-toggle="tab" data-bs-target="#config" type="button" role="tab" aria-controls="config" aria-selected="false">
-                            Configuración
-                        </button>
-                    </li>
-                </ul>
+            <div class="col-md-9">
+                <div class="tab-content" id="myTabContent">
 
-                <div class="tab-content" id="userTabsContent">
-
-                    <div class="tab-pane fade show active" id="datos" role="tabpanel" aria-labelledby="datos-tab">
+                    <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="card bg-secondary p-4 shadow-lg">
-                            <h4 class="mb-4">Información de la Cuenta</h4>
-                            <form>
-                                <div class="mb-3">
-                                    <label for="profileName" class="form-label">Nombre Completo</label>
-                                    <input type="text" class="form-control" id="profileName" value="Juan Pérez" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="profileEmail" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="profileEmail" value="juan.perez@correo.cl" disabled>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="profileAddress" class="form-label">Dirección de Envío Principal</label>
-                                    <input type="text" class="form-control" id="profileAddress" value="Av. Siempre Viva 742, Santiago">
-                                </div>
-                                <div class="d-flex justify-content-between mt-4">
-                                    <button type="button" class="btn btn-warning">Guardar Cambios</button>
-                                    <button type="button" class="btn btn-outline-danger">Cambiar Contraseña</button>
-                                </div>
-                            </form>
+                            <h4 class="mb-4">Información Personal</h4>
+                            <div id="userInfo">
+                                <p class="placeholder-glow">
+                                    <span class="placeholder col-6"></span><br>
+                                    <span class="placeholder col-4"></span>
+                                </p>
+                            </div>
+
+                            <h5 class="mt-4 mb-3">Dirección de Envío Principal</h5>
+                            <div id="userAddress">
+                                <p class="placeholder-glow">
+                                    <span class="placeholder col-8"></span><br>
+                                    <span class="placeholder col-5"></span>
+                                </p>
+                            </div>
+
+                            <button type="button" class="btn btn-primary mt-4 w-50">Editar Perfil</button>
                         </div>
                     </div>
 
-                    <div class="tab-pane fade" id="pedidos" role="tabpanel" aria-labelledby="pedidos-tab">
+                    <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
                         <div class="card bg-secondary p-4 shadow-lg">
                             <h4 class="mb-4">Historial de Pedidos</h4>
 
-                            <div class="list-group">
-                                <div class="list-group-item bg-dark text-white mb-3 rounded shadow-sm">
-                                    <div class="d-flex w-100 justify-content-between">
-                                        <h5 class="mb-1 text-warning">Pedido #LV-2024002</h5>
-                                        <small>Estado: <span class="badge bg-primary">Entregado</span></small>
-                                    </div>
-                                    <p class="mb-1">Fecha: 25/09/2025 | Total: $20.980</p>
-                                    <small class="text-muted">Incluye 1 artículo.</small>
-                                    <div class="mt-2 text-end">
-                                        <button class="btn btn-sm btn-info me-2">Ver Detalle</button>
-                                    </div>
-                                </div>
-
+                            <div id="ordersList">
+                                <p class="text-center">Cargando historial de pedidos...</p>
                             </div>
 
-                            <div class="alert alert-info mt-3" role="alert">
+                            <div class="alert alert-info mt-4" role="alert">
                                 Para cualquier modificación de un pedido entregado, contacta a soporte.
                             </div>
                         </div>
@@ -146,6 +131,194 @@
         </div>
 
     </div>
+
+    <script>
+        // *** IMPORTANTE: Confirma que esta URL es la correcta para tu servidor GraphQL ***
+        const API_URL = 'http://localhost:4000/';
+
+        // --------------------------------------------------------------------------------
+        // 1. Verificación de Autenticación y Carga de Datos
+        // --------------------------------------------------------------------------------
+        window.onload = function() {
+            const token = localStorage.getItem('authToken');
+
+            if (!token) {
+                // Si no hay token, redirige al login
+                alert("Necesitas iniciar sesión para ver tu perfil.");
+                window.location.href = "Sesion.html";
+                return;
+            }
+
+            // Si hay token, procede a cargar la información
+            fetchUserProfile(token);
+        };
+
+        // Consulta GraphQL para obtener el usuario actual y sus pedidos
+        // **IMPORTANTE**: Tu resolver debe usar el token para identificar al usuario (context)
+        const USER_PROFILE_QUERY = `
+            query GetUserProfile {
+                me { 
+                    id
+                    email
+                    name 
+                    address { 
+                        street
+                        city
+                        postalCode
+                    }
+                }
+                userOrders { # Asumo que tienes una query para obtener los pedidos del usuario
+                    id
+                    date
+                    total
+                    status
+                    items {
+                        book {
+                            title
+                            imageURL
+                        }
+                        quantity
+                    }
+                }
+            }
+        `;
+
+        async function fetchUserProfile(token) {
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        // Envía el token para la autenticación
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        query: USER_PROFILE_QUERY,
+                    }),
+                });
+
+                const result = await response.json();
+
+                if (result.errors) {
+                    console.error("Error GraphQL:", result.errors);
+                    // Maneja errores de token inválido o expirado
+                    if (result.errors[0].message.includes('Auth') || result.errors[0].message.includes('Token')) {
+                        alert("Sesión expirada o inválida. Por favor, inicia sesión de nuevo.");
+                        logout();
+                        return;
+                    }
+                    displayFetchError("Error al cargar datos: " + result.errors[0].message);
+                    return;
+                }
+
+                const userData = result.data.me;
+                const userOrders = result.data.userOrders || [];
+
+                if (!userData) {
+                    // Esto ocurre si el token es válido pero el usuario no se encuentra (raro, pero posible)
+                    alert("No se encontró el perfil de usuario. Inicia sesión de nuevo.");
+                    logout();
+                    return;
+                }
+
+                // Muestra la información del usuario
+                renderUserInfo(userData);
+
+                // Muestra la lista de pedidos
+                renderOrders(userOrders);
+
+            } catch (error) {
+                console.error("Error de conexión:", error);
+                displayFetchError("Error de red: No se pudo conectar con el servidor.");
+            }
+        }
+
+        // Función para mostrar la información del usuario en el HTML
+        function renderUserInfo(user) {
+            const infoContainer = document.getElementById('userInfo');
+            const addressContainer = document.getElementById('userAddress');
+
+            infoContainer.innerHTML = `
+                <p><strong>Email:</strong> ${user.email}</p>
+                <p><strong>Nombre:</strong> ${user.name || 'No especificado'}</p>
+            `;
+
+            if (user.address) {
+                addressContainer.innerHTML = `
+                    <p class="mb-0">${user.address.street}</p>
+                    <p class="mb-0">${user.address.city}, ${user.address.postalCode}</p>
+                `;
+            } else {
+                addressContainer.innerHTML = `<p class="text-muted">No se ha registrado una dirección principal.</p>`;
+            }
+        }
+
+        // Función para mostrar los pedidos del usuario en el HTML
+        function renderOrders(orders) {
+            const ordersListContainer = document.getElementById('ordersList');
+
+            if (orders.length === 0) {
+                ordersListContainer.innerHTML = '<p class="text-center text-muted">No has realizado ningún pedido todavía.</p>';
+                return;
+            }
+
+            ordersListContainer.innerHTML = orders.map(order => createOrderCard(order)).join('');
+        }
+
+        // Función para crear la tarjeta de un pedido
+        function createOrderCard(order) {
+            const formattedTotal = order.total ? order.total.toLocaleString('es-CL') : 'N/A';
+            const orderDate = new Date(order.date).toLocaleDateString('es-CL');
+
+            const statusClass = order.status === 'Entregado' ? 'badge bg-success' :
+                order.status === 'Enviado' ? 'badge bg-primary' :
+                'badge bg-warning text-dark';
+
+            // Genera la lista de ítems dentro del pedido
+            const itemsList = order.items.map(item => `
+                <li class="list-group-item bg-dark d-flex align-items-center text-white p-2">
+                    <img src="${item.book.imageURL || 'placeholder.webp'}" alt="Portada" class="rounded me-3 order-item-img">
+                    <div class="flex-grow-1">
+                        <h6 class="mb-0 small">${item.book.title}</h6>
+                        <small class="text-muted">Cant: ${item.quantity}</small>
+                    </div>
+                </li>
+            `).join('');
+
+            return `
+                <div class="card bg-dark mb-4 border border-info">
+                    <div class="card-header d-flex justify-content-between align-items-center bg-secondary">
+                        <h5 class="mb-0">Pedido #${order.id.slice(-6)}</h5>
+                        <span class="${statusClass}">${order.status}</span>
+                    </div>
+                    <div class="card-body p-0">
+                         <ul class="list-group list-group-flush">
+                            ${itemsList}
+                        </ul>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between align-items-center bg-secondary">
+                        <span><strong>Total:</strong> <span class="text-warning">$${formattedTotal}</span></span>
+                        <span><strong>Fecha:</strong> ${orderDate}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayFetchError(message) {
+            document.getElementById('userInfo').innerHTML = `<p class="text-danger">${message}</p>`;
+            document.getElementById('userAddress').innerHTML = '';
+            document.getElementById('ordersList').innerHTML = `<p class="text-danger">${message}</p>`;
+        }
+
+        // --------------------------------------------------------------------------------
+        // 2. Función para Cerrar Sesión
+        // --------------------------------------------------------------------------------
+        function logout() {
+            localStorage.removeItem('authToken');
+            alert("Has cerrado sesión.");
+            window.location.href = "Sesion.html";
+        }
+    </script>
 </body>
 
 </html>
