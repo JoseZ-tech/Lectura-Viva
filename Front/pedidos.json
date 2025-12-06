@@ -1,0 +1,54 @@
+[{
+        "_id": { "$oid": "660000000000000000000010" },
+        "id_pedido": "LV-20250925-001",
+        "id_usuario": "juan.perez@correo.cl",
+        "fecha_pedido": "2025-09-25T10:30:00Z",
+        "estado": "Entregado",
+        "subtotal": 18980,
+        "costo_envio": 2000,
+        "total": 20980,
+        "direccion_envio": {
+            "nombre_completo": "Juan Pérez",
+            "email": "juan.perez@correo.cl",
+            "direccion": "Av. Siempre Viva 742, Santiago",
+            "ciudad": "Santiago",
+            "region": "Metropolitana"
+        },
+        "items": [{
+                "id_libro": "660000000000000000000001",
+                "titulo": "Estudio en Escarlata",
+                "precio_unitario": 10990,
+                "cantidad": 1
+            },
+            {
+                "id_libro": "660000000000000000000003",
+                "titulo": "El Principito",
+                "precio_unitario": 7990,
+                "cantidad": 1
+            }
+        ]
+    },
+    {
+        "_id": { "$oid": "660000000000000000000011" },
+        "id_pedido": "LV-20251001-002",
+        "id_usuario": "maria.lopez@correo.cl",
+        "fecha_pedido": "2025-10-01T15:45:00Z",
+        "estado": "En Proceso",
+        "subtotal": 9990,
+        "costo_envio": 3500,
+        "total": 13490,
+        "direccion_envio": {
+            "nombre_completo": "María López",
+            "email": "maria.lopez@correo.cl",
+            "direccion": "Calle Falsa 123, Valparaíso",
+            "ciudad": "Valparaíso",
+            "region": "Valparaíso"
+        },
+        "items": [{
+            "id_libro": "660000000000000000000004",
+            "titulo": "Alicia en el pais de las maravillas",
+            "precio_unitario": 9990,
+            "cantidad": 1
+        }]
+    }
+]

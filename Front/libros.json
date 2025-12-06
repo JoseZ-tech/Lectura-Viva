@@ -1,0 +1,51 @@
+[{
+        "_id": { "$oid": "660000000000000000000001" },
+        "titulo": "Estudio en Escarlata",
+        "autor": "A. Conan Doyle",
+        "precio": 10990,
+        "genero": "Novela Negra",
+        "novedad": true,
+        "exclusivo": false,
+        "imagen_url": "Sherlock.webp"
+    },
+    {
+        "_id": { "$oid": "660000000000000000000002" },
+        "titulo": "Romeo y Julieta",
+        "autor": "William Shakespeare",
+        "precio": 5200,
+        "genero": "Drama",
+        "novedad": false,
+        "exclusivo": false,
+        "imagen_url": "Romeo.png"
+    },
+    {
+        "_id": { "$oid": "660000000000000000000003" },
+        "titulo": "El Principito",
+        "autor": "A. de Saint-Exupéry",
+        "precio": 7990,
+        "genero": "Fantasía",
+        "novedad": false,
+        "exclusivo": false,
+        "imagen_url": "principito.webp"
+    },
+    {
+        "_id": { "$oid": "660000000000000000000004" },
+        "titulo": "Alicia en el pais de las maravillas",
+        "autor": "Lewis Carroll",
+        "precio": 9990,
+        "genero": "Fantasía",
+        "novedad": false,
+        "exclusivo": true,
+        "imagen_url": "Alicia.webp"
+    },
+    {
+        "_id": { "$oid": "660000000000000000000005" },
+        "titulo": "El Retrato de Dorian Gray",
+        "autor": "Oscar Wilde",
+        "precio": 8500,
+        "genero": "Ficción Gótica",
+        "novedad": false,
+        "exclusivo": false,
+        "imagen_url": "Dorian.webp"
+    }
+]

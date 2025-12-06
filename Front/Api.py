@@ -1,77 +1,49 @@
-from fastapi import FastAPI, HTTPException, status
-from motor.motor_asyncio import AsyncIOMotorClient
+from fastapi import FastAPI, HTTPException
 from typing import List
-from bson import ObjectId
-from Databese import Usuario, UsuarioCreate, Producto, ProductoCreate 
+from modelos import Libro, Pedido, PedidoBase
+from database import get_all_libros, create_new_pedido
+import uvicorn
 
+app = FastAPI(
+    title="API Lectura Viva",
+    description="API para gestionar Libros y Pedidos de la tienda en línea.",
+    version="1.0.0"
+)
 
-MONGO_URI = "mongodb://localhost:27017" 
-DB_NAME = "ecommerce_db"
+## 📖 Endpoints de Libros
 
-app = FastAPI(title="API de eCommerce con MongoDB")
-db_client: Optional[AsyncIOMotorClient] = None
+@app.get("/libros", response_model=List[Libro], summary="Obtener todos los libros del catálogo")
+def get_libros():
+    """
+    Recupera una lista completa de todos los libros disponibles en la base de datos.
+    """
+    try:
+        libros = get_all_libros()
+        return libros
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Error al obtener libros: {e}")
 
+# (Se podrían agregar más endpoints para buscar por ID, género, etc.)
 
+## 🛍️ Endpoints de Pedidos
 
-@app.on_event("startup")
-async def startup_db_client():
-    global db_client
-    db_client = AsyncIOMotorClient(MONGO_URI)
-    print("Conectado a MongoDB!")
+@app.post("/pedidos", response_model=Pedido, status_code=201, summary="Crear un nuevo pedido")
+def create_pedido(pedido: PedidoBase):
+    """
+    Registra un nuevo pedido en la base de datos con los datos de envío y los artículos.
+    Genera automáticamente un ID de pedido y la fecha.
+    """
+    try:
+        nuevo_pedido = create_new_pedido(pedido.model_dump(by_alias=True))
+        return nuevo_pedido
+    except Exception as e:
+        # En un entorno real, manejar errores específicos de DB
+        raise HTTPException(status_code=500, detail=f"Error al crear el pedido: {e}")
 
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    if db_client:
-        db_client.close()
-        print("Desconectado de MongoDB.")
+# (Se podrían agregar endpoints para obtener pedidos por usuario, actualizar estado, etc.)
 
-
-def get_collection(collection_name: str):
-    return db_client[DB_NAME][collection_name]
-
-
-
-
-@app.post("/usuarios/", response_model=Usuario, status_code=status.HTTP_201_CREATED, tags=["Usuario"])
-async def create_user(user: UsuarioCreate):
-    usuarios_collection = get_collection("usuarios")
-    
-    
-    user_data = user.model_dump(exclude_unset=True)
-    
-   
-    result = await usuarios_collection.insert_one(user_data)
-    
-   
-    created_user = await usuarios_collection.find_one({"_id": result.inserted_id})
-    
-    if created_user is None:
-        raise HTTPException(status_code=500, detail="Error al crear el usuario en la DB.")
-        
-
-    return Usuario(**created_user)
-
-
-@app.get("/usuarios/", response_model=List[Usuario], tags=["Usuario"])
-async def read_users():
-    usuarios_collection = get_collection("usuarios")
-    
-
-    users_cursor = usuarios_collection.find()
-    users_list = await users_cursor.to_list(length=None)
-    
-    return [Usuario(**user) for user in users_list]
-
-
-@app.post("/productos/", response_model=Producto, status_code=status.HTTP_201_CREATED, tags=["Producto"])
-async def create_product(product: ProductoCreate):
-    productos_collection = get_collection("productos")
-    product_data = product.model_dump(exclude_unset=True)
-    
-    result = await productos_collection.insert_one(product_data)
-    created_product = await productos_collection.find_one({"_id": result.inserted_id})
-    
-    if created_product is None:
-        raise HTTPException(status_code=500, detail="Error al crear el producto.")
-    
-    return Producto(**created_product)
+if __name__ == "__main__":
+    # Para ejecutar la API, usa este comando en tu terminal:
+    # uvicorn main:app --reload
+    print("Ejecuta 'uvicorn main:app --reload' en tu terminal para iniciar el servidor.")
+    # uvicorn.run(app, host="0.0.0.0", port=8000) # Descomentar para ejecutar directamente
