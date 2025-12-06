@@ -2,7 +2,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 
 # Reemplaza con tu cadena de conexión y nombre de base de datos
-MONGO_URI = "mongodb+srv://<usuario>:<contraseña>@<cluster>/<database>?retryWrites=true&w=majority"
+MONGO_URI = "mongodb://localhost:27017/"
 DB_NAME = "LecturaVivaDB"
 
 client = MongoClient(MONGO_URI)
