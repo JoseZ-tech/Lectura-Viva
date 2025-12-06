@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from modelos import Libro, Pedido, PedidoBase
 from database import get_all_libros, create_new_pedido
@@ -9,7 +10,26 @@ app = FastAPI(
     description="API para gestionar Libros y Pedidos de la tienda en línea.",
     version="1.0.0"
 )
+# ==========================================================
+# 🚨 BLOQUE DE SOLUCIÓN CORS 🚨
+# ==========================================================
 
+origins = [
+    # Tu frontend local (Live Server de VS Code)
+    "http://127.0.0.1:5500", 
+    "http://localhost:5500",
+    
+    # Tu propio backend (para pruebas internas, opcional)
+    "http://127.0.0.1:8000",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,       # Permite los orígenes definidos arriba
+    allow_credentials=True,      # Permite cookies y credenciales
+    allow_methods=["*"],         # Permite todos los métodos (GET, POST, etc.)
+    allow_headers=["*"],         # Permite todos los headers
+)
 ## 📖 Endpoints de Libros
 
 @app.get("/libros", response_model=List[Libro], summary="Obtener todos los libros del catálogo")
