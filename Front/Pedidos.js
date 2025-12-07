@@ -3,7 +3,7 @@
 // Es importante que estas estén disponibles en esta página.
 // =================================================================
 
-const API_BASE_URL = 'mongodb://localhost:27017/';
+const API_BASE_URL = 'http://127.0.0.1:8000';
 const CARRO_KEY = 'lecturaViva_carrito';
 const COSTO_ENVIO = 2000; // Costo de envío fijo, basado en tu HTML de ejemplo
 
