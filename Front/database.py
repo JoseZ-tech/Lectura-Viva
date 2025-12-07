@@ -3,7 +3,7 @@ from bson.objectid import ObjectId
 
 # Reemplaza con tu cadena de conexión y nombre de base de datos
 MONGO_URI = "mongodb+srv://joseenriquezayas2012_db_user:dxibJK00NNgpVWVD@cluster-1.cqutmwh.mongodb.net/?appName=Cluster-1"
-DB_NAME = "Lectura-viva"
+DB_NAME = "Lectura-vivaDB"
 
 client = MongoClient(MONGO_URI)
 db = client[DB_NAME]
